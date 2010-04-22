@@ -5,11 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "extended_inherited_resources"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Slightly extended version of josevalim inherited_resources - for rails 2.3"
+    gem.description = ""
     gem.email = "b.kosmowski@selleo.com"
     gem.homepage = "http://github.com/stevo/extended_inherited_resources"
-    gem.authors = ["B³a¿ej Kosmowski"]
+    gem.authors = ["josevalim", "stevo"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -17,6 +17,7 @@ begin
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
+
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
