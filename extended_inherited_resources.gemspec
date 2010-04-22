@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/stevo/extended_inherited_resources}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Slightly extended version of josevalim inherited_resources - for rails 2.3}
   s.test_files = [
     "test/helper.rb",
