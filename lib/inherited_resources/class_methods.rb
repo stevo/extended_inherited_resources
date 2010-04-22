@@ -36,7 +36,7 @@ module InheritedResources
       options.symbolize_keys!
       options.assert_valid_keys(:resource_class, :collection_name, :instance_name,
                                 :class_name, :route_prefix, :route_collection_name,
-                                :route_instance_name, :singleton, :redirects)
+                                :route_instance_name, :singleton, :redirects, :searchlogic, :pagination)
 
       self.resource_class = options.delete(:resource_class)         if options.key?(:resource_class)
       self.resource_class = options.delete(:class_name).constantize if options.key?(:class_name)
@@ -55,6 +55,9 @@ module InheritedResources
       else
         self.redirects = {:create => self.redirects, :update => self.redirects}
       end
+
+      config[:searchlogic] =  options.delete(:searchlogic) if options.key?(:searchlogic)
+      config[:pagination] =  options.delete(:pagination) if options.key?(:pagination)
 
       options.each do |key, value|
         config[key] = value.to_sym
@@ -255,11 +258,15 @@ module InheritedResources
 
       config[:route_collection_name] = config[:collection_name]
       config[:route_instance_name]   = config[:instance_name]
+      
+      config[:pagination] ||= 25
+      config[:searchlogic] ||= false
+
 
       # Deal with namespaced controllers
       namespaces = self.controller_path.split('/')[0..-2]
       config[:route_prefix] = namespaces.join('_') unless namespaces.empty?
-      
+
       self.redirects ||= {}
       self.redirects[:create] ||= :index
       self.redirects[:update] ||= :index

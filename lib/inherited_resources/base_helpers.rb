@@ -33,9 +33,25 @@ module InheritedResources
     #     @projects ||= end_of_association_chain.paginate(params[:page]).all
     #   end
     #
-    def collection
-      get_collection_ivar || set_collection_ivar(end_of_association_chain.find(:all))
+
+    def setup_searchlogic(param)
+      if param
+        param=:search unless param.is_a? Symbol
+        instance_variable_set("@search",end_of_association_chain.searchlogic(params[param]))
+      end
     end
+
+    def config_hash
+      self.class.resources_configuration[:self]
+    end
+
+    def collection
+      setup_searchlogic(config_hash[:searchlogic])
+      end_of_chain = config_hash[:searchlogic] ? @search : end_of_association_chain
+      end_of_chain = (per_page = config_hash[:pagination]) ?  end_of_chain.paginate(:page => params[:page], :per_page => per_page) : end_of_chain.find(:all)
+      get_collection_ivar || set_collection_ivar(end_of_chain)
+    end
+
 
     # This is how the resource is loaded.
     #
