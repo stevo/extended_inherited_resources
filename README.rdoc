@@ -13,6 +13,11 @@
   * defaults :searchlogic => true
   * defaults :searchlogic => :params_for_sl #key from params in which params for searchlogic are returned
  
+Install by
+
+  config.gem 'extended_inherited_resources', :lib => "inherited_resources", :version => ">=0.2.0"
+  rake gems:install
+
 == Extended Inherited Resources
 
 Inherited Resources speeds up development by making your controllers inherit
