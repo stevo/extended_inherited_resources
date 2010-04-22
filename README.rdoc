@@ -1,3 +1,18 @@
+== Differences to original Inherited Resources
+
+* Pagination is on by default
+ * to alter, pass :pagination to defaults, i.e.
+  * defaults :pagination => false
+  * defaults :pagination => true #20
+  * defaults :pagination => 15
+* default redirect to update and create is now index
+ * to alter, pass :redirects to defaults, i.e.
+   * defaults :redirects => {:create => :show, :update => :index}
+   * defaults :redirects => {:create => :edit}
+* You can enable searchlogic integration easily, i.e. (Searchlogic object will be saved in @search object)
+ * defaults :searchlogic => true
+ * defaults :searchlogic => :params_for_sl #key from params in which params for searchlogic are returned
+ 
 == Extended Inherited Resources
 
 Inherited Resources speeds up development by making your controllers inherit
