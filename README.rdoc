@@ -1,7 +1,7 @@
 == Differences to original Inherited Resources
 
 * Pagination is on by default
-** to alter, pass :pagination to defaults, i.e.
+  * to alter, pass :pagination to defaults, i.e.
   * defaults :pagination => false
   * defaults :pagination => true #20
   * defaults :pagination => 15
