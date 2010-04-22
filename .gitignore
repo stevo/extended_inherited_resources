@@ -18,4 +18,8 @@ coverage
 rdoc
 pkg
 
+##RUBYMINE
+.idea
+.idea/**/*
+
 ## PROJECT::SPECIFIC
