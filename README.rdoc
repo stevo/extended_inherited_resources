@@ -16,6 +16,7 @@
 Install by
 
   config.gem 'extended_inherited_resources', :lib => "inherited_resources", :version => ">=0.2.0"
+  config.gem "responders", :version => "0.4.0"
   rake gems:install
 
 == Extended Inherited Resources
